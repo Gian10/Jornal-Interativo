@@ -1,0 +1,27 @@
+<div class="main-wrapper">
+  <header class="main-header modern-header">
+    <div class="header-left">
+      <svg class="news-icon" xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 24 24" width="32" fill="#fff" style="margin-left:8px;margin-right:8px;"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7l-5-4zm0 16H4V5h15.17L19 7.83V19zm-7-7h5v2h-5v-2zm0 4h5v2h-5v-2zm-6-4h5v2H6v-2zm0 4h5v2H6v-2z"/></svg>
+      <div class="brand-title">
+        <h1>Jornal Interativo</h1>
+        <span class="brand-subtitle">Notícias, análises e tecnologia em um só lugar</span>
+      </div>
+    </div>
+    <div style="margin-left:auto;display:flex;align-items:center;">
+      <button *ngIf="isLoggedIn()" mat-stroked-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Sair
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+ 
+  <footer class="main-footer">
+      <span>© Jornal Interativo - {{ anoAtual }}</span>
+      <span class="spacer"></span>
+  </footer>
+</div>

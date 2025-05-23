@@ -1,0 +1,58 @@
+<section class="news-feed-container">
+  <div class="header">
+    <div class="header-content">
+      <img src="assets/news-illustration.svg" alt="Notícias" class="news-illustration">
+      <div>
+        <h2>Feed de Notícias</h2>
+        <p>Veja as últimas notícias personalizadas para você.</p>
+      </div>
+    </div>
+  </div>
+  <div class="news-list">
+    <mat-card *ngFor="let noticia of noticiasPaginadas; let i = index" class="news-card" [ngClass]="'news-card-color-' + (i % 3)">
+      <mat-card-header (click)="abrirComentarios((currentPage-1)*pageSize + i)" style="cursor:pointer;">
+        <mat-card-title>{{ noticia.titulo }}</mat-card-title>
+        <mat-card-subtitle>{{ noticia.data | date:'short' }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ noticia.resumo }}</p>
+        <mat-form-field appearance="outline" class="comentario-input">
+          <mat-label>Seu comentário</mat-label>
+          <input matInput [(ngModel)]="comentarioAtualPorNoticia[(currentPage-1)*pageSize + i]" (keydown.enter)="adicionarComentarioDireto((currentPage-1)*pageSize + i)">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="adicionarComentarioDireto((currentPage-1)*pageSize + i)">Comentar</button>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="accent" (click)="abrirComentarios((currentPage-1)*pageSize + i); $event.stopPropagation();">Ver comentários</button>
+      </mat-card-actions>
+    </mat-card>
+    <div class="pagination-controls">
+      <button mat-stroked-button color="primary" (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span class="page-indicator">Página {{currentPage}} de {{totalPages}}</span>
+      <button mat-stroked-button color="primary" (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+    </div>
+  </div>
+
+  <!-- Modal de Comentários -->
+  <div class="modal-overlay" *ngIf="modalAberto">
+    <div class="modal-comentario">
+      <h3>Comentários</h3>
+      <div class="comentarios-list">
+        <ng-container *ngIf="noticiaSelecionada !== null">
+          <div *ngIf="comentarios[noticiaSelecionada]?.length; else semComentarios">
+            <div *ngFor="let c of comentarios[noticiaSelecionada]">
+              <div>- {{c.texto}}</div>
+              <div class="comentario-data">{{c.data | date:'short'}}</div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #semComentarios>
+          <span>Nenhum comentário ainda.</span>
+        </ng-template>
+      </div>
+      <div class="modal-actions">
+        <button mat-button (click)="fecharModal()">Fechar</button>
+      </div>
+    </div>
+  </div>
+</section>

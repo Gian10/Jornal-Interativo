@@ -1,0 +1,26 @@
+<div class="welcome-bg">
+  <div class="welcome-hero">
+    <div class="welcome-hero-content">
+      <mat-icon class="welcome-hero-icon" color="primary">dynamic_feed</mat-icon>
+      <h1 class="welcome-hero-title">
+        Bem-vindo ao <span class="highlight">Jornal Interativo</span>
+      </h1>
+      <p class="welcome-hero-desc">
+        <strong>Notícias, análises e tecnologia</strong> em um só lugar.<br />
+        Faça login para acessar conteúdos exclusivos e interagir com a comunidade!
+      </p>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="openLogin()"
+        class="welcome-hero-btn"
+      >
+        <mat-icon>login</mat-icon>
+        Entrar
+      </button>
+    </div>
+    <div class="welcome-hero-illustration">
+      <img src="assets/news-illustration.svg" alt="Notícias" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" rx="24" fill="#E3F2FD"/>
+  <g>
+    <rect x="40" y="60" width="240" height="80" rx="12" fill="#1976D2"/>
+    <rect x="60" y="80" width="200" height="12" rx="6" fill="#90CAF9"/>
+    <rect x="60" y="100" width="120" height="12" rx="6" fill="#90CAF9"/>
+    <rect x="60" y="120" width="80" height="12" rx="6" fill="#90CAF9"/>
+    <circle cx="260" cy="120" r="10" fill="#FF9800"/>
+    <rect x="80" y="30" width="160" height="16" rx="8" fill="#FF9800"/>
+    <rect x="100" y="50" width="120" height="8" rx="4" fill="#FFC107"/>
+  </g>
+  <g>
+    <circle cx="60" cy="170" r="8" fill="#00C6FF"/>
+    <circle cx="260" cy="40" r="6" fill="#00C6FF"/>
+    <circle cx="290" cy="180" r="5" fill="#1976D2"/>
+    <circle cx="30" cy="30" r="5" fill="#1976D2"/>
+  </g>
+  <text x="50%" y="190" text-anchor="middle" fill="#1976D2" font-size="16" font-family="Montserrat, Arial, sans-serif">Notícias em destaque</text>
+</svg>

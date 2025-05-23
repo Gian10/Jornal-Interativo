@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jornalinterativo-dev-6872e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::808057411212:role/amplify-jornalinterativo-dev-6872e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::808057411212:role/amplify-jornalinterativo-dev-6872e-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-jornalinterativo-dev-6872e-deployment",
+      "UnauthRoleName": "amplify-jornalinterativo-dev-6872e-unauthRole",
+      "StackName": "amplify-jornalinterativo-dev-6872e",
+      "StackId": "arn:aws:cloudformation:us-east-1:808057411212:stack/amplify-jornalinterativo-dev-6872e/11e4e3b0-3706-11f0-89f7-0e07dea7e4d3",
+      "AmplifyAppId": "d2pcw1n55rf89w"
+    },
+    "categories": {
+      "auth": {
+        "jornalinterativoebb81368": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2pcw1n55rf89w",
+          "type": "cicd"
+        }
+      }
+    }
+  }
+}
