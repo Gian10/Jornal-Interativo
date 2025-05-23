@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        - npm install -g @angular/cli
+    build:
+      commands:
+        - ng build --configuration production
+  artifacts:
+    baseDirectory: dist/jornal-interativo
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
