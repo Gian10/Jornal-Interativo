@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { signIn, confirmSignIn } from '@aws-amplify/auth';
 import { Router } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent {
   loading = false;
   requireNewPassword = false;
   cognitoUser: any = null;
+  showRegister = false;
 
   @Output() close = new EventEmitter<void>();
   @Output() loginSuccess = new EventEmitter<void>();
@@ -66,5 +68,13 @@ export class LoginComponent {
   closeLogin() {
     this.close.emit();
     this.router.navigate(['/']);
+  }
+
+  abrirRegistro() {
+    this.showRegister = true;
+  }
+
+  fecharRegistro() {
+    this.showRegister = false;
   }
 }

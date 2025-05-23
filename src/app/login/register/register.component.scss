@@ -1,0 +1,62 @@
+.login-modal-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1000;
+}
+.login-modal-card {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+}
+.login-card {
+  min-width: 320px;
+  max-width: 90vw;
+  padding: 32px 24px 24px 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 32px 0 rgba(25, 118, 210, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.login-icon {
+  font-size: 40px;
+}
+.full-width {
+  width: 100%;
+}
+.login-btn {
+  margin-top: 12px;
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+::ng-deep .login-btn.mat-raised-button {
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+::ng-deep button.login-btn.mat-raised-button,
+::ng-deep .login-btn.mat-raised-button {
+  background-color: #1976d2 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.error {
+  color: #d32f2f;
+  margin-top: 8px;
+}
+.success {
+  color: #388e3c;
+  margin-top: 8px;
+}

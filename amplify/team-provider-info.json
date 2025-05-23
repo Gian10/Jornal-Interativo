@@ -14,12 +14,6 @@
     "categories": {
       "auth": {
         "jornalinterativoebb81368": {}
-      },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d2pcw1n55rf89w",
-          "type": "cicd"
-        }
       }
     }
   }

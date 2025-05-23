@@ -16,13 +16,15 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsFeedComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

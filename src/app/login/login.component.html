@@ -7,27 +7,36 @@
       <h2>Bem-vindo!</h2>
       <p class="login-subtitle">Acesse sua conta para continuar</p>
     </div>
-    <form *ngIf="!requireNewPassword" (ngSubmit)="login()">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Usuário</mat-label>
-        <input matInput [(ngModel)]="username" name="username" required autocomplete="username">
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Senha</mat-label>
-        <input matInput [(ngModel)]="password" name="password" type="password" required autocomplete="current-password">
-      </mat-form-field>
-      <button mat-raised-button color="primary" class="full-width login-btn" [disabled]="loading">Entrar</button>
-      <mat-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-bar>
-      <div *ngIf="error" class="error">{{ error }}</div>
-    </form>
-    <form *ngIf="requireNewPassword" (ngSubmit)="submitNewPassword()">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Nova senha</mat-label>
-        <input matInput [(ngModel)]="newPassword" name="newPassword" type="password" required autocomplete="new-password">
-      </mat-form-field>
-      <button mat-raised-button color="primary" class="full-width login-btn" [disabled]="loading">Definir nova senha</button>
-      <mat-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-bar>
-      <div *ngIf="error" class="error">{{ error }}</div>
-    </form>
+    <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+      <button mat-stroked-button color="primary" (click)="showRegister = false" [disabled]="!showRegister">Login</button>
+      <button mat-stroked-button color="accent" (click)="showRegister = true" [disabled]="showRegister">Criar Conta</button>
+    </div>
+    <ng-container *ngIf="!showRegister">
+      <form *ngIf="!requireNewPassword" (ngSubmit)="login()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Usuário</mat-label>
+          <input matInput [(ngModel)]="username" name="username" required autocomplete="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput [(ngModel)]="password" name="password" type="password" required autocomplete="current-password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="full-width login-btn" [disabled]="loading">Entrar</button>
+        <mat-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-bar>
+        <div *ngIf="error" class="error">{{ error }}</div>
+      </form>
+      <form *ngIf="requireNewPassword" (ngSubmit)="submitNewPassword()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nova senha</mat-label>
+          <input matInput [(ngModel)]="newPassword" name="newPassword" type="password" required autocomplete="new-password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="full-width login-btn" [disabled]="loading">Definir nova senha</button>
+        <mat-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-bar>
+        <div *ngIf="error" class="error">{{ error }}</div>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="showRegister">
+      <app-register (close)="showRegister = false"></app-register>
+    </ng-container>
   </mat-card>
 </div>
