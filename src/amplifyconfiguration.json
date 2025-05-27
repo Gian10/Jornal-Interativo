@@ -1,13 +1,22 @@
 {
   "aws_project_region": "us-east-1",
-  "aws_cognito_identity_pool_id": "us-east-1:0e6285f8-23bd-4da5-ba23-51eae3a867af",
-  "aws_cognito_region": "us-east-1",
-  "aws_user_pools_id": "us-east-1_YkpEY5icE",
-  "aws_user_pools_web_client_id": "4u34igml19cuhe3a5g9disbi83",
-  "oauth": {},
-  "aws_cognito_username_attributes": [
-    "EMAIL"
+  "aws_dynamodb_all_tables_region": "us-east-1",
+  "aws_dynamodb_table_schemas": [
+    {
+      "tableName": "dynamoee0eb585-master",
+      "region": "us-east-1"
+    },
+    {
+      "tableName": "dynamo7d7654df-master",
+      "region": "us-east-1"
+    }
   ],
+  "aws_cognito_identity_pool_id": "us-east-1:31d818b6-a6a4-43a0-9b0d-0c6119ef7ea2",
+  "aws_cognito_region": "us-east-1",
+  "aws_user_pools_id": "us-east-1_WUyGdP0BN",
+  "aws_user_pools_web_client_id": "4lbgs81kfaj75e466815umcvbd",
+  "oauth": {},
+  "aws_cognito_username_attributes": [],
   "aws_cognito_social_providers": [],
   "aws_cognito_signup_attributes": [
     "EMAIL"
@@ -23,39 +32,10 @@
   "aws_cognito_verification_mechanisms": [
     "EMAIL"
   ],
-  "aws_dynamodb_all_tables_region": "us-east-1",
-  "aws_dynamodb_table_schemas": [
-    {
-      "tableName": "dynamo13a1d225-dev",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamo107ee8f9-dev",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamo7521fa72-dev",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamo9ff716fe-dev",
-      "region": "us-east-1"
-    }
-  ],
   "aws_cloud_logic_custom": [
     {
-      "name": "api03d1327c",
-      "endpoint": "https://wsobcols5f.execute-api.us-east-1.amazonaws.com/dev",
-      "region": "us-east-1"
-    },
-    {
-      "name": "api2e324f62",
-      "endpoint": "https://vcwy60f2l2.execute-api.us-east-1.amazonaws.com/dev",
-      "region": "us-east-1"
-    },
-    {
-      "name": "api96300c45",
-      "endpoint": "https://ykqr54q435.execute-api.us-east-1.amazonaws.com/dev",
+      "name": "apia9a2b419",
+      "endpoint": "https://0g025q15zc.execute-api.us-east-1.amazonaws.com/master",
       "region": "us-east-1"
     }
   ]

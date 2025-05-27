@@ -11,13 +11,7 @@
     "env": {
       "Type": "String"
     },
-    "api03d1327c": {
-      "Type": "String"
-    },
-    "api2e324f62": {
-      "Type": "String"
-    },
-    "api96300c45": {
+    "apia9a2b419": {
       "Type": "String"
     }
   },
@@ -58,7 +52,7 @@
                       },
                       ":",
                       {
-                        "Ref": "api03d1327c"
+                        "Ref": "apia9a2b419"
                       },
                       "/",
                       {
@@ -88,7 +82,7 @@
                       },
                       ":",
                       {
-                        "Ref": "api03d1327c"
+                        "Ref": "apia9a2b419"
                       },
                       "/",
                       {
@@ -118,7 +112,7 @@
                       },
                       ":",
                       {
-                        "Ref": "api03d1327c"
+                        "Ref": "apia9a2b419"
                       },
                       "/",
                       {
@@ -148,7 +142,7 @@
                       },
                       ":",
                       {
-                        "Ref": "api03d1327c"
+                        "Ref": "apia9a2b419"
                       },
                       "/",
                       {
@@ -161,126 +155,6 @@
                         ]
                       },
                       "/*/comments"
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":",
-                      {
-                        "Ref": "api2e324f62"
-                      },
-                      "/",
-                      {
-                        "Fn::If": [
-                          "ShouldNotCreateEnvResources",
-                          "Prod",
-                          {
-                            "Ref": "env"
-                          }
-                        ]
-                      },
-                      "/*/news/*"
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":",
-                      {
-                        "Ref": "api2e324f62"
-                      },
-                      "/",
-                      {
-                        "Fn::If": [
-                          "ShouldNotCreateEnvResources",
-                          "Prod",
-                          {
-                            "Ref": "env"
-                          }
-                        ]
-                      },
-                      "/*/news"
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":",
-                      {
-                        "Ref": "api96300c45"
-                      },
-                      "/",
-                      {
-                        "Fn::If": [
-                          "ShouldNotCreateEnvResources",
-                          "Prod",
-                          {
-                            "Ref": "env"
-                          }
-                        ]
-                      },
-                      "/*/news/*"
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:execute-api:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":",
-                      {
-                        "Ref": "AWS::AccountId"
-                      },
-                      ":",
-                      {
-                        "Ref": "api96300c45"
-                      },
-                      "/",
-                      {
-                        "Fn::If": [
-                          "ShouldNotCreateEnvResources",
-                          "Prod",
-                          {
-                            "Ref": "env"
-                          }
-                        ]
-                      },
-                      "/*/news"
                     ]
                   ]
                 }

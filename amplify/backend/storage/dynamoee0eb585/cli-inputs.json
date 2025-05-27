@@ -1,0 +1,10 @@
+{
+  "resourceName": "dynamoee0eb585",
+  "tableName": "dynamoee0eb585",
+  "partitionKey": {
+    "fieldName": "uuid",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

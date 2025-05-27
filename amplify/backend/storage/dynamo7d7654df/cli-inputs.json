@@ -1,0 +1,10 @@
+{
+  "resourceName": "dynamo7d7654df",
+  "tableName": "dynamo7d7654df",
+  "partitionKey": {
+    "fieldName": "uuid",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
