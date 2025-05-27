@@ -9,11 +9,29 @@
       "UnauthRoleName": "amplify-jornalinterativo-dev-6872e-unauthRole",
       "StackName": "amplify-jornalinterativo-dev-6872e",
       "StackId": "arn:aws:cloudformation:us-east-1:808057411212:stack/amplify-jornalinterativo-dev-6872e/11e4e3b0-3706-11f0-89f7-0e07dea7e4d3",
-      "AmplifyAppId": "d2pcw1n55rf89w"
+      "AmplifyAppId": "d2pcw1n55rf89w",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-jornalinterativo-dev-6872e-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "jornalinterativoebb81368": {}
+      },
+      "function": {
+        "jornalinterativo21e1de63": {
+          "deploymentBucketName": "amplify-jornalinterativo-dev-6872e-deployment",
+          "s3Key": "amplify-builds/jornalinterativo21e1de63-77632b6a69595a553074-build.zip"
+        },
+        "jornalinterativo516c9fae": {
+          "deploymentBucketName": "amplify-jornalinterativo-dev-6872e-deployment",
+          "s3Key": "amplify-builds/jornalinterativo516c9fae-794c7941616f6535634a-build.zip"
+        }
+      },
+      "storage": {
+        "dynamo13a1d225": {},
+        "dynamo107ee8f9": {}
+      },
+      "api": {
+        "api03d1327c": {}
       }
     }
   }

@@ -1,0 +1,10 @@
+{
+  "resourceName": "dynamo13a1d225",
+  "tableName": "dynamo13a1d225",
+  "partitionKey": {
+    "fieldName": "news",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

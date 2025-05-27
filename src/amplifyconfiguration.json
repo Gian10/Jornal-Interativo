@@ -22,5 +22,23 @@
   },
   "aws_cognito_verification_mechanisms": [
     "EMAIL"
+  ],
+  "aws_dynamodb_all_tables_region": "us-east-1",
+  "aws_dynamodb_table_schemas": [
+    {
+      "tableName": "dynamo13a1d225-dev",
+      "region": "us-east-1"
+    },
+    {
+      "tableName": "dynamo107ee8f9-dev",
+      "region": "us-east-1"
+    }
+  ],
+  "aws_cloud_logic_custom": [
+    {
+      "name": "api03d1327c",
+      "endpoint": "https://wsobcols5f.execute-api.us-east-1.amazonaws.com/dev",
+      "region": "us-east-1"
+    }
   ]
 }

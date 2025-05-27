@@ -1,0 +1,6 @@
+{
+  "pluginId": "amplify-dotnet-function-runtime-provider",
+  "functionRuntime": "dotnet8",
+  "useLegacyBuild": false,
+  "defaultEditorFile": "src\\jornalinterativo516c9fae.cs"
+}
