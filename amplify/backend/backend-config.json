@@ -97,32 +97,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Cognito",
       "serviceType": "managed"
-    },
-    "jornalinterativoebb81368": {
-      "customAuth": false,
-      "dependsOn": [],
-      "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": 8
-        },
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
-        "verificationMechanisms": [
-          "EMAIL"
-        ]
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito"
     }
   },
   "function": {
@@ -256,6 +230,70 @@
         {
           "category": "function",
           "resourceName": "jornalinterativo01fe014b"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo21e1de63_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo21e1de63"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo21e1de63_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo21e1de63"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo516c9fae_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo516c9fae"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo516c9fae_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo516c9fae"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo70362392_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo70362392"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo70362392_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo70362392"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativoa3f933bf_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativoa3f933bf"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativoa3f933bf_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativoa3f933bf"
         }
       ]
     },
