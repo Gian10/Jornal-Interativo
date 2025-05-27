@@ -32,12 +32,30 @@
     {
       "tableName": "dynamo107ee8f9-dev",
       "region": "us-east-1"
+    },
+    {
+      "tableName": "dynamo7521fa72-dev",
+      "region": "us-east-1"
+    },
+    {
+      "tableName": "dynamo9ff716fe-dev",
+      "region": "us-east-1"
     }
   ],
   "aws_cloud_logic_custom": [
     {
       "name": "api03d1327c",
       "endpoint": "https://wsobcols5f.execute-api.us-east-1.amazonaws.com/dev",
+      "region": "us-east-1"
+    },
+    {
+      "name": "api2e324f62",
+      "endpoint": "https://vcwy60f2l2.execute-api.us-east-1.amazonaws.com/dev",
+      "region": "us-east-1"
+    },
+    {
+      "name": "api96300c45",
+      "endpoint": "https://ykqr54q435.execute-api.us-east-1.amazonaws.com/dev",
       "region": "us-east-1"
     }
   ]
