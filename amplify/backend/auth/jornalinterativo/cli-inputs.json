@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "jornalinterativoebb81368_identitypool_ebb81368",
+    "identityPoolName": "jornalinterativo_identitypool_2341fd51",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "jornalebb81368",
-    "userPoolName": "jornalinterativoebb81368_userpool_ebb81368",
+    "resourceNameTruncated": "jornal2341fd51",
+    "userPoolName": "jornalinterativo_userpool_2341fd51",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,18 +31,12 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "jornalebb81368_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "jornal2341fd51_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "ebb81368",
-    "resourceName": "jornalinterativoebb81368",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
-    "usernameAttributes": [
-      "email"
-    ],
-    "userPoolGroupList": [],
+    "resourceName": "jornalinterativo",
+    "sharedId": "2341fd51",
     "serviceName": "Cognito",
-    "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useDefault": "manual"
   }
 }
