@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { signOut } from '@aws-amplify/auth';
 import { Router } from '@angular/router';
+import {NewsService} from '../services/newsService';
 
 @Component({
   selector: 'app-news-feed',
@@ -50,16 +51,35 @@ export class NewsFeedComponent implements OnInit {
   currentPage = 1;
   pageSize = 5;
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-
-  }
+  constructor(private router: Router, private service: NewsService ) { }
 
   async logout() {
     await signOut();
     localStorage.removeItem('cognitoUser');
     this.router.navigate(['/']);
+  }
+
+  async ngOnInit() {
+    // Recomendado: use subscribe para consumir o Observable do NewsService
+    this.service.getNews().subscribe(
+      data => {
+        console.log('Notícias recebidas:', data);
+        // Aqui você pode atribuir os dados recebidos ao array de notícias, se desejar
+        // this.noticias = data;
+      },
+      error => {
+        console.error('Erro ao buscar notícias:', error);
+      }
+    );
+
+    try {
+      const { fetchAuthSession } = await import('@aws-amplify/auth');
+      const session = await fetchAuthSession();
+      const token = session.tokens?.idToken?.toString();
+      console.log('Token Cognito:', token);
+    } catch (error) {
+      console.log('Erro ao obter token Cognito:', error);
+    }
   }
 
   get totalPages(): number {
