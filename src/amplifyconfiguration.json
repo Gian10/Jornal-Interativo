@@ -1,27 +1,5 @@
 {
   "aws_project_region": "us-east-1",
-  "aws_cloud_logic_custom": [
-    {
-      "name": "api03d1327c",
-      "endpoint": "https://ui2xyljdr1.execute-api.us-east-1.amazonaws.com/master",
-      "region": "us-east-1"
-    },
-    {
-      "name": "api2e324f62",
-      "endpoint": "https://tgh3jimh27.execute-api.us-east-1.amazonaws.com/master",
-      "region": "us-east-1"
-    },
-    {
-      "name": "api96300c45",
-      "endpoint": "https://ohdfreu9c1.execute-api.us-east-1.amazonaws.com/master",
-      "region": "us-east-1"
-    },
-    {
-      "name": "apia9a2b419",
-      "endpoint": "https://0g025q15zc.execute-api.us-east-1.amazonaws.com/master",
-      "region": "us-east-1"
-    }
-  ],
   "aws_cognito_identity_pool_id": "us-east-1:31d818b6-a6a4-43a0-9b0d-0c6119ef7ea2",
   "aws_cognito_region": "us-east-1",
   "aws_user_pools_id": "us-east-1_WUyGdP0BN",
@@ -42,32 +20,5 @@
   },
   "aws_cognito_verification_mechanisms": [
     "EMAIL"
-  ],
-  "aws_dynamodb_all_tables_region": "us-east-1",
-  "aws_dynamodb_table_schemas": [
-    {
-      "tableName": "dynamo107ee8f9-master",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamo13a1d225-master",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamo7521fa72-master",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamo7d7654df-master",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamo9ff716fe-master",
-      "region": "us-east-1"
-    },
-    {
-      "tableName": "dynamoee0eb585-master",
-      "region": "us-east-1"
-    }
   ]
 }

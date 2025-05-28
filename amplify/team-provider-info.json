@@ -63,48 +63,10 @@
         "jornalinterativo": {}
       },
       "function": {
-        "jornalinterativo21e1de63": {
-          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativo21e1de63-6230675a55423572507a-build.zip"
-        },
-        "jornalinterativo516c9fae": {
-          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativo516c9fae-676a4f774a574b477a78-build.zip"
-        },
-        "jornalinterativo70362392": {
-          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativo70362392-634d3970366633317863-build.zip"
-        },
-        "jornalinterativoa3f933bf": {
-          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativoa3f933bf-66357061466a63426c7a-build.zip"
-        },
-        "jornalinterativo01fe014b": {
-          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativo01fe014b-334974466a2b76317041-build.zip"
-        },
-        "jornalinterativodee3aa19": {
-          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativodee3aa19-4f442b43514e59427832-build.zip"
-        },
         "dynamo13a1d225": {},
         "dynamo107ee8f9": {},
         "dynamo9ff716fe": {},
         "dynamo7521fa72": {}
-      },
-      "storage": {
-        "dynamoee0eb585": {},
-        "dynamo7d7654df": {},
-        "dynamo107ee8f9": {},
-        "dynamo13a1d225": {},
-        "dynamo7521fa72": {},
-        "dynamo9ff716fe": {}
-      },
-      "api": {
-        "apia9a2b419": {},
-        "api03d1327c": {},
-        "api2e324f62": {},
-        "api96300c45": {}
       }
     }
   }
