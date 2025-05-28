@@ -66,7 +66,22 @@
         "dynamo13a1d225": {},
         "dynamo107ee8f9": {},
         "dynamo9ff716fe": {},
-        "dynamo7521fa72": {}
+        "dynamo7521fa72": {},
+        "jornalinterativo0f9d22d4": {
+          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
+          "s3Key": "amplify-builds/jornalinterativo0f9d22d4-36346548693178544278-build.zip"
+        },
+        "jornalinterativo08804659": {
+          "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
+          "s3Key": "amplify-builds/jornalinterativo08804659-65433470366d715a3577-build.zip"
+        }
+      },
+      "api": {
+        "api57d916f7": {}
+      },
+      "storage": {
+        "dynamo9d40da66": {},
+        "dynamo9321b609": {}
       }
     }
   }

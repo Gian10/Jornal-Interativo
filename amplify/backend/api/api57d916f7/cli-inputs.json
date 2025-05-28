@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "paths": {
+    "/news": {
+      "name": "/news",
+      "lambdaFunction": "jornalinterativo0f9d22d4",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    },
+    "/comments": {
+      "name": "/comments",
+      "lambdaFunction": "jornalinterativo08804659",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

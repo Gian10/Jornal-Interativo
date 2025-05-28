@@ -1,5 +1,28 @@
 {
-  "api": {},
+  "api": {
+    "api57d916f7": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "jornalinterativo0f9d22d4"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "jornalinterativo08804659"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "jornalinterativo": {
       "dependsOn": [],
@@ -26,7 +49,89 @@
       "serviceType": "managed"
     }
   },
-  "function": {},
+  "function": {
+    "jornalinterativo08804659": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamo9321b609"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "jornalinterativo0f9d22d4": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamo9d40da66"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "hosting": {},
-  "storage": {}
+  "parameters": {
+    "AMPLIFY_function_jornalinterativo08804659_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo08804659"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo08804659_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo08804659"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo0f9d22d4_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo0f9d22d4"
+        }
+      ]
+    },
+    "AMPLIFY_function_jornalinterativo0f9d22d4_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "jornalinterativo0f9d22d4"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "dynamo9321b609": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "dynamo9d40da66": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
 }
