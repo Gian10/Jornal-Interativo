@@ -69,11 +69,11 @@
         "dynamo7521fa72": {},
         "jornalinterativo0f9d22d4": {
           "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativo0f9d22d4-36346548693178544278-build.zip"
+          "s3Key": "amplify-builds/jornalinterativo0f9d22d4-4146706e65566d4f4974-build.zip"
         },
         "jornalinterativo08804659": {
           "deploymentBucketName": "amplify-jornalinterativo-master-5daa1-deployment",
-          "s3Key": "amplify-builds/jornalinterativo08804659-65433470366d715a3577-build.zip"
+          "s3Key": "amplify-builds/jornalinterativo08804659-44706a4979692f332b31-build.zip"
         }
       },
       "api": {

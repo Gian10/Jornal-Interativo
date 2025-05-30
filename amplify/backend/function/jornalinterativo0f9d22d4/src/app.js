@@ -60,6 +60,7 @@ const convertUrlType = (param, type) => {
 ************************************/
 
 app.get(path, async function(req, res) {
+  console.log('Request received', req.method, req.url, req.body);
   var params = {
     TableName: tableName,
     Select: 'ALL_ATTRIBUTES',
@@ -69,8 +70,9 @@ app.get(path, async function(req, res) {
     const data = await ddbDocClient.send(new ScanCommand(params));
     res.json(data.Items);
   } catch (err) {
+    console.error('Erro Lambda', err, err && err.stack); // Log detalhado
     res.statusCode = 500;
-    res.json({error: 'Could not load items: ' + err.message});
+    res.json({error: 'Could not load items: ' + (err && err.message), details: err});
   }
 });
 
@@ -79,6 +81,7 @@ app.get(path, async function(req, res) {
  ************************************/
 
 app.get(path + hashKeyPath, async function(req, res) {
+  console.log('Request received', req.method, req.url, req.body);
   const condition = {}
   condition[partitionKeyName] = {
     ComparisonOperator: 'EQ'
@@ -90,8 +93,9 @@ app.get(path + hashKeyPath, async function(req, res) {
     try {
       condition[partitionKeyName]['AttributeValueList'] = [ convertUrlType(req.params[partitionKeyName], partitionKeyType) ];
     } catch(err) {
+      console.error('Erro Lambda', err, err && err.stack); // Log detalhado
       res.statusCode = 500;
-      res.json({error: 'Wrong column type ' + err});
+      res.json({error: 'Wrong column type ' + err, details: err});
     }
   }
 
@@ -104,8 +108,9 @@ app.get(path + hashKeyPath, async function(req, res) {
     const data = await ddbDocClient.send(new QueryCommand(queryParams));
     res.json(data.Items);
   } catch (err) {
+    console.error('Erro Lambda', err, err && err.stack); // Log detalhado
     res.statusCode = 500;
-    res.json({error: 'Could not load items: ' + err.message});
+    res.json({error: 'Could not load items: ' + (err && err.message), details: err});
   }
 });
 
@@ -114,6 +119,7 @@ app.get(path + hashKeyPath, async function(req, res) {
  *****************************************/
 
 app.get(path + '/object' + hashKeyPath + sortKeyPath, async function(req, res) {
+  console.log('Request received', req.method, req.url, req.body);
   const params = {};
   if (userIdPresent && req.apiGateway) {
     params[partitionKeyName] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
@@ -122,16 +128,18 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, async function(req, res) {
     try {
       params[partitionKeyName] = convertUrlType(req.params[partitionKeyName], partitionKeyType);
     } catch(err) {
+      console.error('Erro Lambda', err, err && err.stack); // Log detalhado
       res.statusCode = 500;
-      res.json({error: 'Wrong column type ' + err});
+      res.json({error: 'Wrong column type ' + err, details: err});
     }
   }
   if (hasSortKey) {
     try {
       params[sortKeyName] = convertUrlType(req.params[sortKeyName], sortKeyType);
     } catch(err) {
+      console.error('Erro Lambda', err, err && err.stack); // Log detalhado
       res.statusCode = 500;
-      res.json({error: 'Wrong column type ' + err});
+      res.json({error: 'Wrong column type ' + err, details: err});
     }
   }
 
@@ -148,8 +156,9 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, async function(req, res) {
       res.json(data) ;
     }
   } catch (err) {
+    console.error('Erro Lambda', err, err && err.stack); // Log detalhado
     res.statusCode = 500;
-    res.json({error: 'Could not load items: ' + err.message});
+    res.json({error: 'Could not load items: ' + (err && err.message), details: err});
   }
 });
 
@@ -159,7 +168,7 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, async function(req, res) {
 *************************************/
 
 app.put(path, async function(req, res) {
-
+  console.log('Request received', req.method, req.url, req.body);
   if (userIdPresent) {
     req.body['userId'] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
   }
@@ -172,8 +181,9 @@ app.put(path, async function(req, res) {
     let data = await ddbDocClient.send(new PutCommand(putItemParams));
     res.json({ success: 'put call succeed!', url: req.url, data: data })
   } catch (err) {
+    console.error('Erro Lambda', err, err && err.stack); // Log detalhado
     res.statusCode = 500;
-    res.json({ error: err, url: req.url, body: req.body });
+    res.json({ error: err, url: req.url, body: req.body, details: err});
   }
 });
 
@@ -182,7 +192,7 @@ app.put(path, async function(req, res) {
 *************************************/
 
 app.post(path, async function(req, res) {
-
+  console.log('Request received', req.method, req.url, req.body);
   if (userIdPresent) {
     req.body['userId'] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
   }
@@ -195,8 +205,9 @@ app.post(path, async function(req, res) {
     let data = await ddbDocClient.send(new PutCommand(putItemParams));
     res.json({ success: 'post call succeed!', url: req.url, data: data })
   } catch (err) {
+    console.error('Erro Lambda', err, err && err.stack); // Log detalhado
     res.statusCode = 500;
-    res.json({ error: err, url: req.url, body: req.body });
+    res.json({ error: err, url: req.url, body: req.body, details: err});
   }
 });
 
@@ -205,6 +216,7 @@ app.post(path, async function(req, res) {
 ***************************************/
 
 app.delete(path + '/object' + hashKeyPath + sortKeyPath, async function(req, res) {
+  console.log('Request received', req.method, req.url, req.body);
   const params = {};
   if (userIdPresent && req.apiGateway) {
     params[partitionKeyName] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
@@ -213,16 +225,18 @@ app.delete(path + '/object' + hashKeyPath + sortKeyPath, async function(req, res
      try {
       params[partitionKeyName] = convertUrlType(req.params[partitionKeyName], partitionKeyType);
     } catch(err) {
+      console.error('Erro Lambda', err, err && err.stack); // Log detalhado
       res.statusCode = 500;
-      res.json({error: 'Wrong column type ' + err});
+      res.json({error: 'Wrong column type ' + err, details: err});
     }
   }
   if (hasSortKey) {
     try {
       params[sortKeyName] = convertUrlType(req.params[sortKeyName], sortKeyType);
     } catch(err) {
+      console.error('Erro Lambda', err, err && err.stack); // Log detalhado
       res.statusCode = 500;
-      res.json({error: 'Wrong column type ' + err});
+      res.json({error: 'Wrong column type ' + err, details: err});
     }
   }
 
@@ -235,8 +249,43 @@ app.delete(path + '/object' + hashKeyPath + sortKeyPath, async function(req, res
     let data = await ddbDocClient.send(new DeleteCommand(removeItemParams));
     res.json({url: req.url, data: data});
   } catch (err) {
+    console.error('Erro Lambda', err, err && err.stack); // Log detalhado
     res.statusCode = 500;
-    res.json({error: err, url: req.url});
+    res.json({error: 'Could not delete item: ' + (err && err.message), details: err});
+  }
+});
+
+/***********************************************
+* HTTP PUT method to update only comentarios  *
+***********************************************/
+
+app.put(path + '/:uuid/comentarios', async function(req, res) {
+  console.log('PUT /news/:uuid/comentarios', req.body);
+  const uuid = req.params.uuid;
+  const { comentarios } = req.body;
+  if (!uuid || !comentarios) {
+    return res.status(400).json({ error: 'uuid e comentarios são obrigatórios.' });
+  }
+  // Monta a expressão de atualização para adicionar/incrementar comentários
+  const updateParams = {
+    TableName: tableName,
+    Key: { uuid },
+    UpdateExpression: 'SET #comentarios = list_append(if_not_exists(#comentarios, :empty_list), :new_comentarios)',
+    ExpressionAttributeNames: {
+      '#comentarios': 'comentarios',
+    },
+    ExpressionAttributeValues: {
+      ':new_comentarios': Array.isArray(comentarios) ? comentarios : [comentarios],
+      ':empty_list': [],
+    },
+    ReturnValues: 'ALL_NEW',
+  };
+  try {
+    const data = await ddbDocClient.send(new (require('@aws-sdk/lib-dynamodb').UpdateCommand)(updateParams));
+    res.json({ success: true, data: data.Attributes });
+  } catch (err) {
+    console.error('Erro ao atualizar comentarios:', err);
+    res.status(500).json({ error: 'Erro ao atualizar comentarios', details: err });
   }
 });
 

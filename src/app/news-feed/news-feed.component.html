@@ -12,15 +12,10 @@
     <mat-card *ngFor="let noticia of noticiasPaginadas; let i = index" class="news-card" [ngClass]="'news-card-color-' + (i % 3)">
       <mat-card-header (click)="abrirComentarios((currentPage-1)*pageSize + i)" style="cursor:pointer;">
         <mat-card-title>{{ noticia.titulo }}</mat-card-title>
-        <mat-card-subtitle>{{ noticia.data | date:'short' }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ noticia.data }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p>{{ noticia.resumo }}</p>
-        <mat-form-field appearance="outline" class="comentario-input">
-          <mat-label>Seu comentário</mat-label>
-          <input matInput [(ngModel)]="comentarioAtualPorNoticia[(currentPage-1)*pageSize + i]" (keydown.enter)="adicionarComentarioDireto((currentPage-1)*pageSize + i)">
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="adicionarComentarioDireto((currentPage-1)*pageSize + i)">Comentar</button>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="accent" (click)="abrirComentarios((currentPage-1)*pageSize + i); $event.stopPropagation();">Ver comentários</button>
@@ -39,10 +34,10 @@
       <h3>Comentários</h3>
       <div class="comentarios-list">
         <ng-container *ngIf="noticiaSelecionada !== null">
-          <div *ngIf="comentarios[noticiaSelecionada]?.length; else semComentarios">
-            <div *ngFor="let c of comentarios[noticiaSelecionada]">
+          <div *ngIf="noticias[noticiaSelecionada]?.comentarios?.length; else semComentarios">
+            <div *ngFor="let c of noticias[noticiaSelecionada]?.comentarios">
               <div>- {{c.texto}}</div>
-              <div class="comentario-data">{{c.data | date:'short'}}</div>
+              <div class="comentario-data">{{c.data}}</div>
             </div>
           </div>
         </ng-container>
@@ -50,6 +45,11 @@
           <span>Nenhum comentário ainda.</span>
         </ng-template>
       </div>
+      <mat-form-field appearance="outline" class="comentario-input">
+        <mat-label>Seu comentário</mat-label>
+        <input matInput [(ngModel)]="comentarioAtual" (keydown.enter)="adicionarComentario()">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="adicionarComentario()">Comentar</button>
       <div class="modal-actions">
         <button mat-button (click)="fecharModal()">Fechar</button>
       </div>

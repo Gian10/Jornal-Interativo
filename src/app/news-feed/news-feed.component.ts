@@ -9,40 +9,7 @@ import {NewsService} from '../services/newsService';
   styleUrls: ['./news-feed.component.scss']
 })
 export class NewsFeedComponent implements OnInit {
-  noticias = [
-    {
-      titulo: 'Avanço da Inteligência Artificial transforma o mercado de trabalho',
-      resumo: 'Especialistas apontam que a adoção acelerada de IA está redefinindo profissões, exigindo novas habilidades e promovendo a automação de tarefas repetitivas.',
-      data: new Date()
-    },
-    {
-      titulo: 'Mudanças climáticas: cidades investem em soluções sustentáveis',
-      resumo: 'Prefeituras de grandes centros urbanos implementam políticas inovadoras para reduzir emissões e adaptar infraestruturas aos desafios ambientais.',
-      data: new Date()
-    },
-    {
-      titulo: 'Educação digital cresce e amplia acesso ao ensino de qualidade',
-      resumo: 'Plataformas online e recursos interativos impulsionam a democratização do conhecimento, aproximando estudantes de diferentes regiões.',
-      data: new Date()
-    },
-    {
-      titulo: 'Educação digital cresce e amplia acesso ao ensino de qualidade',
-      resumo: 'Plataformas online e recursos interativos impulsionam a democratização do conhecimento, aproximando estudantes de diferentes regiões.',
-      data: new Date()
-    },
-    {
-      titulo: 'Educação digital cresce e amplia acesso ao ensino de qualidade',
-      resumo: 'Plataformas online e recursos interativos impulsionam a democratização do conhecimento, aproximando estudantes de diferentes regiões.',
-      data: new Date()
-    },
-    {
-      titulo: 'Educação digital cresce e amplia acesso ao ensino de qualidade',
-      resumo: 'Plataformas online e recursos interativos impulsionam a democratização do conhecimento, aproximando estudantes de diferentes regiões.',
-      data: new Date()
-    }
-  ];
-
-  comentarios: { [index: number]: { texto: string, data: Date }[] } = {};
+  noticias: any[] = [];
   comentarioAtual = '';
   comentarioAtualPorNoticia: { [index: number]: string } = {};
   noticiaSelecionada: number | null = null;
@@ -60,26 +27,25 @@ export class NewsFeedComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // Recomendado: use subscribe para consumir o Observable do NewsService
     this.service.getNews().subscribe(
       data => {
-        console.log('Notícias recebidas:', data);
-        // Aqui você pode atribuir os dados recebidos ao array de notícias, se desejar
-        // this.noticias = data;
+        this.noticias = (Array.isArray(data) ? data : []).map(n => ({
+          uuid: n.uuid, 
+          titulo: n.titulo,
+          resumo: n.resumo,
+          data: n.data,
+          comentarios: Array.isArray(n.comentarios)
+            ? (n.comentarios as any[]).map((c: any) => ({ texto: c.texto, data: c.data || c.dataTeste || '' }))
+            : n.comentarios
+              ? [{ texto: n.comentarios.texto, data: n.comentarios.data || n.comentarios.dataTeste || '' }]
+              : []
+        }));
+        console.log('Notícias recebidas:', this.noticias);
       },
       error => {
         console.error('Erro ao buscar notícias:', error);
       }
     );
-
-    try {
-      const { fetchAuthSession } = await import('@aws-amplify/auth');
-      const session = await fetchAuthSession();
-      const token = session.tokens?.idToken?.toString();
-      console.log('Token Cognito:', token);
-    } catch (error) {
-      console.log('Erro ao obter token Cognito:', error);
-    }
   }
 
   get totalPages(): number {
@@ -106,9 +72,6 @@ export class NewsFeedComponent implements OnInit {
   abrirComentarios(index: number) {
     this.noticiaSelecionada = index;
     this.modalAberto = true;
-    if (!this.comentarios[index]) {
-      this.comentarios[index] = [];
-    }
   }
 
   fecharModal() {
@@ -118,25 +81,48 @@ export class NewsFeedComponent implements OnInit {
 
   adicionarComentario() {
     if (this.comentarioAtual.trim() && this.noticiaSelecionada !== null) {
-      this.comentarios[this.noticiaSelecionada].push({
+      const noticia = this.noticias[this.noticiaSelecionada];
+      if (!noticia.uuid) {
+        console.error('UUID da notícia não definido!');
+        return;
+      }
+      const comentario = {
         texto: this.comentarioAtual.trim(),
-        data: new Date()
+        data: new Date().toLocaleDateString('pt-BR')
+      };
+      this.service.addComentario(noticia.uuid, comentario).subscribe({
+        next: (res) => {
+          noticia.comentarios.push(comentario);
+          this.comentarioAtual = '';
+        },
+        error: (err) => {
+          console.error('Erro ao adicionar comentário:', err);
+        }
       });
-      this.comentarioAtual = '';
     }
   }
 
   adicionarComentarioDireto(index: number) {
     const texto = this.comentarioAtualPorNoticia[index]?.trim();
     if (texto) {
-      if (!this.comentarios[index]) {
-        this.comentarios[index] = [];
+      const noticia = this.noticias[index];
+      if (!noticia.uuid) {
+        console.error('UUID da notícia não definido!');
+        return;
       }
-      this.comentarios[index].push({
+      const comentario = {
         texto,
-        data: new Date()
+        data: new Date().toLocaleDateString('pt-BR')
+      };
+      this.service.addComentario(noticia.uuid, comentario).subscribe({
+        next: (res) => {
+          noticia.comentarios.push(comentario);
+          this.comentarioAtualPorNoticia[index] = '';
+        },
+        error: (err) => {
+          console.error('Erro ao adicionar comentário:', err);
+        }
       });
-      this.comentarioAtualPorNoticia[index] = '';
     }
   }
 
