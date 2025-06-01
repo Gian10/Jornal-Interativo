@@ -40,7 +40,6 @@ export class NewsFeedComponent implements OnInit {
               ? [{ texto: n.comentarios.texto, data: n.comentarios.data || n.comentarios.dataTeste || '' }]
               : []
         }));
-        console.log('Notícias recebidas:', this.noticias);
       },
       error => {
         console.error('Erro ao buscar notícias:', error);

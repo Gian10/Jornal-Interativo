@@ -1,0 +1,92 @@
+.news-admin-container {
+  max-width: 600px;
+  margin: 40px auto 0 auto;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(33, 150, 243, 0.10);
+  padding: 40px 32px 32px 32px;
+}
+
+.news-admin-container h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #2196f3;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.news-admin-container label, .news-admin-container .mat-form-field-label {
+  color: #111 !important;
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background: transparent;
+}
+
+.admin-field, .mat-form-field {
+  width: 100%;
+  background: rgba(255,255,255,0.04) !important;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #2196f3;
+}
+
+.mat-form-field-label {
+  color: #fff !important;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.mat-input-element, .mat-form-field-infix, input, textarea {
+  color: #fff !important;
+  font-size: 1.08rem;
+  background: transparent !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #b0bec5 !important;
+  opacity: 1;
+}
+
+button[type="submit"] {
+  align-self: flex-end;
+  min-width: 180px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #2196f3 0%, #21cbf3 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(33, 203, 243, 0.10);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #21cbf3 0%, #2196f3 100%);
+  box-shadow: 0 4px 16px rgba(33, 203, 243, 0.18);
+}
+
+.success-msg {
+  color: #4caf50;
+  margin-top: 12px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.error-msg {
+  color: #ff5252;
+  margin-top: 12px;
+  font-weight: 600;
+  text-align: right;
+}
+
+// Ajuste para responsividade
+@media (max-width: 700px) {
+  .news-admin-container {
+    padding: 18px 4vw 18px 4vw;
+  }
+}

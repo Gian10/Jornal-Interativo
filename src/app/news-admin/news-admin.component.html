@@ -1,0 +1,30 @@
+<section class="news-admin-container">
+  <h2>Cadastrar Nova Notícia</h2>
+  <button mat-stroked-button color="accent" style="margin-bottom: 24px;" (click)="goToNews()">
+    Voltar para o Feed
+  </button>
+  <form [formGroup]="newsForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" class="admin-field">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="titulo" maxlength="120">
+      <mat-hint align="end">{{newsForm.get('titulo')?.value?.length || 0}} / 120</mat-hint>
+      <mat-error *ngIf="newsForm.get('titulo')?.hasError('required')">Título obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="admin-field">
+      <mat-label>Resumo</mat-label>
+      <textarea matInput formControlName="resumo" maxlength="300" rows="3"></textarea>
+      <mat-hint align="end">{{newsForm.get('resumo')?.value?.length || 0}} / 300</mat-hint>
+      <mat-error *ngIf="newsForm.get('resumo')?.hasError('required')">Resumo obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="admin-field">
+      <mat-label>Data</mat-label>
+      <input matInput formControlName="data" type="date">
+      <mat-error *ngIf="newsForm.get('data')?.hasError('required')">Data obrigatória</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="newsForm.invalid || loading">
+      {{ loading ? 'Salvando...' : 'Cadastrar Notícia' }}
+    </button>
+    <div class="success-msg" *ngIf="successMsg">{{successMsg}}</div>
+    <div class="error-msg" *ngIf="errorMsg">{{errorMsg}}</div>
+  </form>
+</section>

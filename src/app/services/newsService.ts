@@ -14,7 +14,7 @@ export class NewsService {
     return from(fetchAuthSession()).pipe(
       switchMap((session: any) => {
         const token = session.tokens?.idToken?.toString();
-        //console.log('Token Cognito:', token);
+        console.log('Token Cognito:', token);
         const headers = new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': token || ''
